@@ -1,0 +1,30 @@
+def poly(n,m,t):
+    if t=="C":
+        return C(n,m)
+    if t=="H":
+        return H(n,m)
+    if t=="L":
+        return L(n,m)
+def C(n,m):
+    if n==0:
+        return 1
+    if n==1:
+        return 2
+    if n>1:
+        return 2*m*C(n-1,m)-C(n-2,m)
+def H(n,m):
+    if n==0:
+        return 1
+    if n==1:
+        return 2*m
+    if n>1:
+        return 2*m*H(n-1,m)-2*(n-1)*H(n-2,m)
+def L(n,m):
+    if n==0:
+        return 1
+    if n==1:
+        return m
+    if n>0:
+        return ((2*n-1)*L(n-1,m)-(n-1)*L(n-2,m))/n
+print(poly(2,1,"C"))
+
